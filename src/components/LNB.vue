@@ -81,6 +81,59 @@
             </li>
           </ul>
         </div>
+        <!--Partners GROUP-->
+        <div
+          ref="partners"
+          class="group partners">
+          <h3
+            class="group__title"
+            @click="toggleGroup('partners')">
+            {{ navigations.partners.title }}
+            <div class="toggle-list"></div>
+          </h3>
+          <ul
+            v-show="isShowPartners"
+            v-cloak
+            class="group__list">
+            <li
+              v-for="item in navigations.partners.list"
+              :key="item.name">
+              <a :href="item.href">
+                <img
+                  :src="item.src"
+                  :alt="item.name"
+                  width="112" />
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!--BrandMall GROUP-->
+        <div
+          ref="brandMall"
+          class="group brandmall">
+          <h3
+            class="group__title"
+            @click="toggleGroup('brandMall')">
+            {{ navigations.brandMall.title }}
+            <div class="toggle-list"></div>
+          </h3>
+          <ul
+            v-show="isShowBrandMall"
+            v-cloak
+            class="group__list">
+            <li
+              v-for="item in navigations.brandMall.list"
+              :key="item.name">
+              <a :href="item.href">
+                <img
+                  :src="item.src"
+                  :alt="item.name"
+                  width="55" />
+                <span class="brand-title">{{ item.name }}</span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="exhibitions">
         <a :href="navigations.exhibitions.href">
@@ -162,7 +215,7 @@ export default {
     &.show {
       transform: translateX(0);
     }
-    .user{
+    .user {
       height: 70px;
       padding: 0 25px;
       background-color: #fff;
@@ -228,6 +281,11 @@ export default {
           li {
             display:flex;
             align-items: center;
+            a {
+              display: flex;
+              align-items: center;
+              width: 100%;
+            }
           }
         }
       }
@@ -282,7 +340,6 @@ export default {
                 font-size: 15px;
                 overflow-y: auto;
                 li {
-
                   height: 40px;
                   a {
                     padding: 0 20px;
@@ -328,6 +385,49 @@ export default {
             li {
               margin-top: 10px;
               padding-left: 25px;
+            }
+          }
+        }
+        &.partners {
+          .group__title {
+            cursor: pointer;
+          }
+          .group__list {
+            display: flex;
+            flex-wrap: wrap;
+            padding-bottom: 25px;
+            li {
+              width: 50%;
+              height: 60px;
+              a {
+                justify-content: center;
+              }
+            }
+          }
+        }
+        &.brandmall {
+          .group__title {
+            cursor: pointer;
+          }
+          .group__list {
+            display: flex;
+            flex-wrap: wrap;
+            padding-bottom: 25px;
+            li {
+              width: 33.33%;
+              height: auto;
+              margin-top: 20px;
+              &:nth-child(-n+3) {
+                margin-top: 0;
+              }
+              a {
+                justify-content: center;
+                flex-direction: column;
+                span.brand-title {
+                  font-size: 14px;
+                  color: #666;
+                }
+              }
             }
           }
         }

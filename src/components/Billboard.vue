@@ -87,7 +87,6 @@ export default {
             slideChange: ({ realIndex }) => {
               this.currentIndex = realIndex;
               this.currentColor = this.billboards[realIndex].color;
-              console.log(this.currentIndex, this.currentColor);
             },
             autoplayStart: () => {
               this.isAutoplay = true;
