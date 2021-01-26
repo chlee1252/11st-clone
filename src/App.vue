@@ -19,14 +19,5 @@ export default {
 
 <style lang="scss">
   @import "./scss/main";
-
-  .container {
-    display: flex;
-    .item {
-      width: 100px;
-      height: 100px;
-      background-color: red;
-    }
-  }
 </style>
 

@@ -118,6 +118,7 @@ export default {
     }
     .container {
       // Common!
+      overflow-y: auto;
       .group {
         &__title {
           font-size: 17px;
@@ -145,10 +146,10 @@ export default {
                 background-image: url("https://trusting-williams-8cacfb.netlify.app/images/categories_2x.png");
                 background-size: 48px; // Origin 96px
               }
-              @for $i from 0 through 12 {
+              @for $i from 1 through 13 {
                 &:nth-child(#{$i}) {
                   .category-icon {
-                    background-position: 0 -#{$i * 24}px;
+                    background-position: 0 -#{($i - 1) * 24}px;
                   }
                 }
               }
@@ -156,10 +157,10 @@ export default {
               &:hover {
                 background-color: #ff5534;
                 color: #fff;
-                @for $i from 0 through 12 {
+                @for $i from 1 through 13 {
                   &:nth-child(#{$i}) {
                     .category-icon {
-                      background-position: -24px -#{$i * 24}px;
+                      background-position: -24px -#{($i - 1) * 24}px;
                     }
                   }
                 }
