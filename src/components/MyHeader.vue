@@ -4,7 +4,7 @@
       <div class="inner">
         <div
           class="open-nav-drawer"
-          @click="onNav"></div>
+          @click="onNav('LNB')"></div>
         <a
           href="javascript:void(0)"
           class="logo"></a>
@@ -39,8 +39,67 @@
             </div>
           </div>
         </div>
+        <ul class="right-menu">
+          <li class="my-menu">
+            <a href="javascript:void(0)"></a>
+            <ul class="my-menu__inner">
+              <li>
+                <a href="javascript:void(0)">나의 쿠폰</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">주문/배송조회</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">취소/반품/교환</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">고객센터</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">회원정보</a>
+              </li>
+            </ul>
+          </li>
+          <li class="my-shipment">
+            <a href="javascript:void(0)"></a>
+          </li>
+          <li class="my-cart">
+            <a href="javascript:void(0)"></a>
+          </li>
+          <li
+            class="my-recent"
+            @click="onNav('RNB')">
+            <a href="javascript:void(0)"></a>
+          </li>
+        </ul>
       </div>
     </header>
+    <div class="bottom-header">
+      <div class="inner">
+        <ul class="sub-menu">
+          <li>
+            <a href="javascript:void(0)">베스트</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">쿠폰/혜택</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">기획전</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">오늘장보기</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">T공식대리점</a>
+          </li>
+          <li>
+            <a
+              class="shocking"
+              href="javascript:void(0)"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -77,8 +136,8 @@ export default {
         });
       });
     },
-    onNav() {
-      this.$store.dispatch('navigation/onNav');
+    onNav(name) {
+      this.$store.dispatch('navigation/onNav', name);
     },
     async search() {
       if (!this.searchText.trim()) return;
@@ -87,7 +146,7 @@ export default {
       });
       console.log(res);
       // location = res;
-    }
+    },
   }
 }
 </script>
@@ -183,6 +242,106 @@ export default {
                 color: #f43142;
               }
             }
+          }
+        }
+      }
+      .right-menu {
+        display: flex;
+        > li {
+          margin-right: 25px;
+          padding: 7px 0;
+          position: relative;
+          &:last-child {
+            margin-right: 0;
+          }
+          > a {
+            display: block;
+            width: 48px;
+            height: 48px;
+            background-image: url("https://trusting-williams-8cacfb.netlify.app/images/globals_2x.png");
+            background-size: 363px;
+          }
+        }
+        .my-menu {
+          a {
+            background-position: -106px -145px;
+            &:hover {
+              background-position: -53px -145px;
+            }
+          }
+          &:hover {
+            .my-menu__inner {
+              display: block;
+            }
+          }
+          .my-menu__inner {
+            display: none;
+            width: 170px;
+            padding: 15px 0;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            z-index: 2;
+            background-color: #fff;
+            li {
+              a {
+                display: block;
+                padding: 7px 10px 7px 25px;
+                font-size: 15px;
+                &:hover {
+                  color: #f43142;
+                  background-color: #fafafa;
+                }
+              }
+            }
+          }
+        }
+        .my-shipment a {
+          background-position: 0px -198px;
+          &:hover {
+            background-position: -159px -145px;
+          }
+        }
+        .my-cart a {
+          background-position: -53px -198px;
+          &:hover {
+            background-position: 0px -145px;
+          }
+        }
+        .my-recent a {
+          background-position: -94px -70px;
+          &:hover {
+            background-position: -106px -198px;
+          }
+        }
+      }
+    }
+  }
+
+  .bottom-header {
+    border: 1px solid #f1f1f1;
+    .sub-menu {
+      display: flex;
+      li {
+        font-size: 17px;
+        margin-right: 20px;
+        &:last-child {
+          margin-right: 0;
+        }
+        a {
+          display: flex;
+          align-items: center;
+          height: 66px;
+          &.hover {
+
+          }
+          &.shocking {
+            width: 63px;
+            background-image: url("https://trusting-williams-8cacfb.netlify.app/images/globals_2x.png");
+            background-size: 363px;
+            background-position: -94px 0;
           }
         }
       }
