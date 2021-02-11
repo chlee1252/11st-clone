@@ -1,8 +1,7 @@
 <template>
   <div>
-    <nav
-      :class="{ show: isShowRNB }">
-    </nav>
+    <!--속성이 하나만 있을 때는 한 줄로 작성하는 게 좋아요~-->
+    <nav :class="{ show: isShowRNB }"></nav>
     <div
       v-if="isShowRNB"
       class="nav-bg"

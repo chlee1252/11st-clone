@@ -50,7 +50,9 @@ import 'swiper/swiper-bundle.css';
 export default {
   data() {
     return {
-      billboards: {},
+      // 나중에 다르게 이해할 수 있기 때문에,
+      // 데이터의 기본값을 명확하게 표시해주는 것이 좋아요~
+      billboards: [],
       currentIndex: 0,
       currentColor: '',
       isAutoplay: false,
@@ -134,6 +136,9 @@ export default {
           border-radius: 22.5px;
           margin-right: 10px;
           display: flex;
+          &:last-child {
+            margin-right: 0;
+          }
           .autoplay {
             width: 45px;
             height: 45px;
