@@ -53,6 +53,7 @@
 <script>
 import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.css';
+// 경로 별칭을 사용하는 것이 더 좋아요~
 import FocusCard from "./FocusCard";
 
 export default {
@@ -61,7 +62,9 @@ export default {
   },
   data() {
     return {
-      focusItems: {},
+      // 나중에 다르게 이해할 수 있기 때문에,
+      // 데이터의 기본값을 명확하게 표시해주는 것이 좋아요~
+      focusItems: [],
     }
   },
   mounted () {
@@ -103,6 +106,7 @@ export default {
       }
       .swiper-outer {
         position: relative;
+        // 다중 선택자는 줄바꿈하는 것이 좋아요~
         .next, .prev {
           position: absolute;
           top: 50%;
@@ -141,13 +145,14 @@ export default {
     }
   }
 
+  // 혹시 section 태그를 사용하지 않아서??
   // 윽... 왜 안되는거지.. ㅠ
   //.focus-items {
   //  background-color: #F6F7FB;
   //  h3 {
   //    font-weight: 700;
   //    font-size: 25px;
-  //    margin-bottom: 20px;ㅠ
+  //    margin-bottom: 20px;ㅠ // 혹시 이 부분 때문?
   //  }
   //  .inner {
   //    height: 528px;
